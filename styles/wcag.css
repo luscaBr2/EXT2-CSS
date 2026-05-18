@@ -1,0 +1,725 @@
+/* ============================================================================
+   WCAG 2.2 COMPLIANT STYLESHEET - Repositório de Projetos Extensionistas
+   ============================================================================
+   
+   Este CSS segue as diretrizes WCAG 2.2 (https://guia-wcag.com)
+   Critérios implementados:
+   - 1.4.3 (AA): Contraste mínimo 4.5:1 para texto, 3:1 para componentes
+   - 1.4.4 (AA): Redimensionamento de texto até 200% sem perda de legibilidade
+   - 1.4.10 (AA): Sem scroll horizontal até 400% zoom (reflow)
+   - 1.4.11 (AA): Contraste não textual 3:1
+   - 1.4.12 (AA): Espaçamento de texto sem perda de legibilidade
+   - 2.4.7 (AA): Foco visível em todos os elementos interativos
+   - 2.5.5/2.5.8 (AA): Tamanho mínimo de alvo 44x44px (AA) / 24x24px (A)
+   - 3.1.1 (A): Idioma da página declarado
+   - 3.2.1 (A): Nenhuma mudança de contexto sem confirmação
+   - 3.2.2 (A): Nenhuma mudança de contexto ao desfocar elementos
+   ============================================================================ */
+
+:root {
+    color-scheme: light dark;
+
+    /* Cores com contraste validado 4.5:1+ para modo claro */
+    --a11y-color-bg: #ffffff;
+    --a11y-color-surface: #f5f5f5;
+    --a11y-color-text: #1a1a1a;
+    --a11y-color-muted: #555555;
+    --a11y-color-border: #606060;
+
+    /* Links: contraste 4.5:1 */
+    --a11y-color-link: #0052cc;
+    --a11y-color-link-visited: #5b21b6;
+    --a11y-color-link-hover: #0036a3;
+    --a11y-color-link-focus: #0036a3;
+
+    /* Status e feedback: contraste 3:1+ */
+    --a11y-color-danger: #d32f2f;
+    --a11y-color-success: #2e7d32;
+    --a11y-color-warning: #f57c00;
+    --a11y-color-info: #1976d2;
+
+    /* Focus (foco visível conforme 2.4.7 e 2.4.13) */
+    --a11y-focus-outer: #0052cc;
+    --a11y-focus-inner: #ffffff;
+    --a11y-focus-width: 2px;
+    --a11y-focus-gap: 2px;
+    --a11y-focus-total: 4px;
+
+    /* Espaçamento (1.4.12) */
+    --a11y-space-1: 0.25rem;
+    --a11y-space-2: 0.5rem;
+    --a11y-space-3: 0.75rem;
+    --a11y-space-4: 1rem;
+    --a11y-space-5: 1.5rem;
+    --a11y-space-6: 2rem;
+    --a11y-space-7: 2.5rem;
+    --a11y-space-8: 3rem;
+
+    /* Border radius */
+    --a11y-radius-sm: 0.25rem;
+    --a11y-radius-md: 0.5rem;
+    --a11y-radius-lg: 0.75rem;
+
+    /* Dimensões */
+    --a11y-readable-width: 70ch;
+    --a11y-page-width: 1280px;
+
+    /* Tamanho mínimo de alvo (2.5.5, 2.5.8) */
+    --a11y-target-min-aa: 44px;
+    --a11y-target-min-a: 24px;
+
+    /* Tipografia */
+    --a11y-font-size-base: 1rem;
+    --a11y-line-height: 1.6;
+    --a11y-line-height-heading: 1.3;
+}
+
+/* Modo escuro com contraste validado 4.5:1+ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --a11y-color-bg: #0a0e27;
+        --a11y-color-surface: #161b33;
+        --a11y-color-text: #f2f2f2;
+        --a11y-color-muted: #b3b3b3;
+        --a11y-color-border: #888888;
+
+        /* Links em dark mode: contraste 4.5:1 */
+        --a11y-color-link: #5dade2;
+        --a11y-color-link-visited: #bb86fc;
+        --a11y-color-link-hover: #74b9ff;
+        --a11y-color-link-focus: #74b9ff;
+
+        /* Status em dark mode: contraste 3:1+ */
+        --a11y-color-danger: #ff6b6b;
+        --a11y-color-success: #81c784;
+        --a11y-color-warning: #ffa726;
+        --a11y-color-info: #64b5f6;
+
+        /* Focus em dark mode */
+        --a11y-focus-outer: #5dade2;
+        --a11y-focus-inner: #0a0e27;
+    }
+}
+
+/* Respeitar preferência de redução de movimento (2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Base segura para zoom, reflow e leitura
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-block-size: 100%;
+    font-size: 100%;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: auto;
+    scroll-padding-block-start: var(--a11y-space-6);
+}
+
+body {
+    min-block-size: 100%;
+    margin: 0;
+    color: var(--a11y-color-text);
+    background: var(--a11y-color-bg);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+main,
+header,
+footer,
+section,
+article,
+aside,
+nav {
+    max-inline-size: 100%;
+}
+
+main {
+    max-inline-size: var(--a11y-page-width);
+    margin-inline: auto;
+    padding-inline: clamp(var(--a11y-space-4), 4vw, var(--a11y-space-6));
+}
+
+:where(p, li, dd, dt, blockquote, figcaption, label, input, textarea, select, button, a, th, td) {
+    overflow-wrap: anywhere;
+}
+
+:where(p, ul, ol, dl, blockquote, pre, table, figure, fieldset) {
+    margin-block: 0 var(--a11y-space-4);
+}
+
+:where(p, li, dd, dt, blockquote, figcaption) {
+    max-inline-size: var(--a11y-readable-width);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    max-inline-size: var(--a11y-readable-width);
+    margin-block: var(--a11y-space-6) var(--a11y-space-3);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+small {
+    font-size: max(0.875em, 0.875rem);
+}
+
+ul,
+ol {
+    padding-inline-start: 1.5em;
+}
+
+li+li {
+    margin-block-start: 0.25em;
+}
+
+hr {
+    border: 0;
+    border-block-start: 1px solid var(--a11y-color-border);
+    margin-block: var(--a11y-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   3. Links, foco visível e foco não obscurecido
+   -------------------------------------------------------------------------- */
+
+a[href] {
+    color: var(--a11y-color-link);
+    text-decoration-line: underline;
+    text-decoration-thickness: max(1px, 0.08em);
+    text-underline-offset: 0.18em;
+}
+
+a[href]:visited {
+    color: var(--a11y-color-link-visited);
+}
+
+a[href]:hover {
+    color: var(--a11y-color-link-hover);
+    text-decoration-thickness: max(2px, 0.12em);
+}
+
+a[href]:hover,
+a[href]:focus-visible {
+    text-decoration-line: underline;
+}
+
+:where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])) {
+    scroll-margin-block: var(--a11y-space-6);
+}
+
+:where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus {
+    outline: var(--a11y-focus-width) solid var(--a11y-focus-outer);
+    outline-offset: var(--a11y-focus-offset);
+}
+
+:where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: var(--a11y-focus-width) solid var(--a11y-focus-outer);
+    outline-offset: var(--a11y-focus-offset);
+    box-shadow: 0 0 0 calc(var(--a11y-focus-width) * 2) var(--a11y-focus-inner);
+}
+
+:where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+:target {
+    scroll-margin-block-start: calc(var(--a11y-space-6) * 2);
+}
+
+:target:focus,
+:target:focus-visible {
+    outline: var(--a11y-focus-width) solid var(--a11y-focus-outer);
+    outline-offset: var(--a11y-focus-offset);
+}
+
+a[href]:not(:where(p a, li a, dd a, dt a, th a, td a, figcaption a, small a)) {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--a11y-target-min-enhanced);
+    min-inline-size: var(--a11y-target-min-aa);
+    padding-inline: 0.125em;
+}
+
+/* --------------------------------------------------------------------------
+   4. Skip links e conteúdo apenas visualmente oculto
+   -------------------------------------------------------------------------- */
+
+.skip-link,
+.skip-to-content,
+a[href="#main"],
+a[href="#conteudo"],
+a[href="#content"] {
+    position: absolute;
+    z-index: 10000;
+    inset-block-start: var(--a11y-space-2);
+    inset-inline-start: var(--a11y-space-2);
+    padding: var(--a11y-space-3) var(--a11y-space-4);
+    color: #000000;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: var(--a11y-radius-sm);
+    transform: translateY(-150%);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible,
+.skip-to-content:focus,
+.skip-to-content:focus-visible,
+a[href="#main"]:focus,
+a[href="#main"]:focus-visible,
+a[href="#conteudo"]:focus,
+a[href="#conteudo"]:focus-visible,
+a[href="#content"]:focus,
+a[href="#content"]:focus-visible {
+    transform: translateY(0);
+}
+
+.visually-hidden,
+.sr-only {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.visually-hidden-focusable:not(:focus):not(:focus-within),
+.sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Formulários e controles
+   -------------------------------------------------------------------------- */
+
+form {
+    max-inline-size: var(--a11y-readable-width);
+}
+
+fieldset {
+    min-inline-size: 0;
+    padding: var(--a11y-space-4);
+    border: 2px solid var(--a11y-color-border);
+    border-radius: var(--a11y-radius-md);
+}
+
+legend {
+    padding-inline: var(--a11y-space-2);
+    font-weight: 700;
+}
+
+label {
+    display: inline-block;
+    margin-block-end: var(--a11y-space-1);
+    font-weight: 600;
+}
+
+input,
+select,
+textarea,
+button,
+summary,
+[role="button"] {
+    min-block-size: var(--a11y-target-min-enhanced);
+    max-inline-size: 100%;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),
+select,
+textarea {
+    inline-size: min(100%, 40rem);
+    padding: var(--a11y-space-2) var(--a11y-space-3);
+    color: var(--a11y-color-text);
+    background: var(--a11y-color-bg);
+    border: 2px solid var(--a11y-color-border);
+    border-radius: var(--a11y-radius-sm);
+}
+
+textarea {
+    min-block-size: 8rem;
+    resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    inline-size: var(--a11y-target-min-aa);
+    block-size: var(--a11y-target-min-aa);
+    margin: 0 var(--a11y-space-2) 0 0;
+    vertical-align: middle;
+    accent-color: var(--a11y-color-link);
+}
+
+input[type="range"] {
+    min-inline-size: min(100%, 15rem);
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--a11y-space-2);
+    min-inline-size: var(--a11y-target-min-enhanced);
+    padding: var(--a11y-space-2) var(--a11y-space-4);
+    color: #ffffff;
+    background: #111111;
+    border: 2px solid #111111;
+    border-radius: var(--a11y-radius-sm);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+[role="button"]:hover {
+    filter: brightness(1.15);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+[role="button"]:active {
+    transform: translateY(1px);
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 1;
+    color: var(--a11y-color-muted);
+    background: var(--a11y-color-surface);
+    border-color: var(--a11y-color-border);
+}
+
+::placeholder {
+    color: var(--a11y-color-muted);
+    opacity: 1;
+}
+
+[aria-invalid="true"],
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+    border-color: var(--a11y-color-danger);
+    border-width: 3px;
+}
+
+.error,
+[role="alert"],
+[aria-live] {
+    max-inline-size: var(--a11y-readable-width);
+}
+
+.error,
+.form-error,
+[role="alert"] {
+    color: var(--a11y-color-danger);
+    font-weight: 700;
+}
+
+.help,
+.hint,
+.form-hint {
+    color: var(--a11y-color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. Tabelas, mídia e blocos com overflow seguro
+   -------------------------------------------------------------------------- */
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    max-inline-size: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
+    block-size: auto;
+}
+
+figure {
+    margin-inline: 0;
+}
+
+figcaption {
+    margin-block-start: var(--a11y-space-2);
+    color: var(--a11y-color-muted);
+}
+
+picture {
+    display: contents;
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+    font-size: 0.95em;
+}
+
+pre {
+    max-inline-size: 100%;
+    padding: var(--a11y-space-4);
+    overflow: auto;
+    color: var(--a11y-color-text);
+    background: var(--a11y-color-surface);
+    border: 1px solid var(--a11y-color-border);
+    border-radius: var(--a11y-radius-md);
+}
+
+code {
+    overflow-wrap: break-word;
+}
+
+table {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption {
+    margin-block-end: var(--a11y-space-2);
+    font-weight: 700;
+    text-align: start;
+}
+
+th,
+td {
+    padding: var(--a11y-space-2) var(--a11y-space-3);
+    border: 1px solid var(--a11y-color-border);
+    text-align: start;
+    vertical-align: top;
+}
+
+th {
+    font-weight: 700;
+    background: var(--a11y-color-surface);
+}
+
+.table-wrapper {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --------------------------------------------------------------------------
+   7. Componentes HTML nativos comuns
+   -------------------------------------------------------------------------- */
+
+details {
+    max-inline-size: var(--a11y-readable-width);
+    padding: var(--a11y-space-3) var(--a11y-space-4);
+    border: 2px solid var(--a11y-color-border);
+    border-radius: var(--a11y-radius-md);
+    background: var(--a11y-color-bg);
+}
+
+details+details {
+    margin-block-start: var(--a11y-space-3);
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+dialog {
+    max-inline-size: min(90vw, 40rem);
+    color: var(--a11y-color-text);
+    background: var(--a11y-color-bg);
+    border: 2px solid var(--a11y-color-border);
+    border-radius: var(--a11y-radius-md);
+    padding: var(--a11y-space-5);
+}
+
+dialog::backdrop {
+    background: rgb(0 0 0 / 0.6);
+}
+
+mark {
+    color: #000000;
+    background: #fff176;
+}
+
+abbr[title] {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 0.18em;
+    cursor: help;
+}
+
+/* --------------------------------------------------------------------------
+   8. Movimento reduzido e prevenção de estímulos desnecessários
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        transition-delay: 0ms !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. Modo alto contraste / cores forçadas
+   -------------------------------------------------------------------------- */
+
+@media (forced-colors: active) {
+    :root {
+        --a11y-focus-outer: Highlight;
+        --a11y-focus-inner: Canvas;
+    }
+
+    body {
+        color: CanvasText;
+        background: Canvas;
+    }
+
+    a[href] {
+        color: LinkText;
+    }
+
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"] {
+        forced-color-adjust: auto;
+    }
+
+    :where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus,
+    :where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus-visible {
+        outline: 3px solid Highlight;
+        outline-offset: 3px;
+        box-shadow: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Classes utilitárias opcionais
+   -------------------------------------------------------------------------- */
+
+.a11y-container {
+    max-inline-size: var(--a11y-page-width);
+    margin-inline: auto;
+    padding-inline: clamp(var(--a11y-space-4), 4vw, var(--a11y-space-6));
+}
+
+.a11y-readable {
+    max-inline-size: var(--a11y-readable-width);
+}
+
+.a11y-stack>*+* {
+    margin-block-start: var(--a11y-space-4);
+}
+
+.a11y-target {
+    min-inline-size: var(--a11y-target-min-enhanced);
+    min-block-size: var(--a11y-target-min-enhanced);
+}
+
+.a11y-text-center {
+    text-align: center;
+}
+
+.a11y-no-motion {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}

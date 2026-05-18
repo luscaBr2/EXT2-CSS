@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositório de Projetos Extensionistas</title>
+
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="topo">
+            <img src="https://www.ifspcjo.edu.br/images/Campos_do_Jordao_-_Logo_Horizontal_Colorido.jpg"
+                alt="Logo da faculdade" id="logo" width="100">
+            <div>
+                <h1>Repositório de Projetos Extensionistas</h1>
+                <p>Plataforma para projetos acadêmicos de extensão</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#turmas">Turmas</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#submeter">Submeter Projeto</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div id="busca">
+            <form action="#projetos" method="get">
+                <label for="campo-busca">Buscar:</label>
+                <input type="search" id="campo-busca" name="q" placeholder="Buscar projeto ou turma...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- SOBRE -->
+        <section id="sobre">
+            <h2>Sobre a Plataforma</h2>
+            <p>
+                Esta plataforma reúne os projetos extensionistas desenvolvidos pelas turmas da faculdade.
+                Qualquer turma pode submeter seu projeto pelo formulário abaixo. Após avaliação da coordenação,
+                o projeto fica disponível para toda a comunidade acadêmica.
+            </p>
+
+            <div id="numeros">
+                <div class="numero-item">
+                    <strong>4</strong>
+                    <span>Turmas</span>
+                </div>
+                <div class="numero-item">
+                    <strong>12</strong>
+                    <span>Projetos</span>
+                </div>
+                <div class="numero-item">
+                    <strong>68</strong>
+                    <span>Alunos</span>
+                </div>
+                <div class="numero-item">
+                    <strong>6</strong>
+                    <span>Professores</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- COMO FUNCIONA -->
+        <section id="como-funciona">
+            <h2>Como Funciona</h2>
+            <ol>
+                <li>
+                    <h3>Prepare o projeto</h3>
+                    <p>Junte os arquivos: relatório em PDF, imagens e informações da equipe.</p>
+                </li>
+                <li>
+                    <h3>Preencha o formulário</h3>
+                    <p>Acesse a seção "Submeter Projeto" e preencha os campos.</p>
+                </li>
+                <li>
+                    <h3>Aguarde aprovação</h3>
+                    <p>A coordenação revisa e aprova em até 5 dias úteis. Você recebe um e-mail.</p>
+                </li>
+                <li>
+                    <h3>Publicado!</h3>
+                    <p>Seu projeto fica visível na plataforma para todos acessarem.</p>
+                </li>
+            </ol>
+        </section>
+
+
+        <!-- FILTRO DE TURMAS -->
+        <section id="turmas">
+            <h2>Turmas</h2>
+            <p>Clique em uma turma para filtrar os projetos.</p>
+
+            <nav id="filtro-turmas">
+                <ul>
+                    <li><a href="#projetos" class="filtro" data-turma="todas">Todas</a></li>
+                    <li><a href="#projetos" class="filtro" data-turma="turma-1">Turma 1 — 2025/1</a></li>
+                    <li><a href="#projetos" class="filtro" data-turma="turma-2">Turma 2 — 2025/1</a></li>
+                    <li><a href="#projetos" class="filtro" data-turma="turma-3">Turma 3 — 2025/2</a></li>
+                    <li><a href="#projetos" class="filtro" data-turma="turma-4">Turma 4 — 2025/2</a></li>
+                </ul>
+            </nav>
+
+            <nav id="filtro-categorias">
+                <ul>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="todas">Todas as categorias</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="educacao">Educação</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="saude">Saúde</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="tecnologia">Tecnologia</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="meio-ambiente">Meio Ambiente</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="cultura">Cultura</a></li>
+                    <li><a href="#projetos" class="filtro-cat" data-categoria="social">Social</a></li>
+                </ul>
+            </nav>
+        </section>
+
+
+        <!-- PROJETOS -->
+        <section id="projetos">
+            <h2>Projetos Disponíveis</h2>
+
+            <p id="resultado-filtro"></p>
+
+
+            <!-- TURMA 1 -->
+            <section id="turma-1" class="bloco-turma" data-turma="turma-1">
+                <h3>Turma 1 — 2025/1</h3>
+                <p>
+                    <strong>Curso:</strong> Análise e Desenvolvimento de Sistemas &nbsp;|&nbsp;
+                    <strong>Período:</strong> 3º Semestre &nbsp;|&nbsp;
+                    <strong>Orientador:</strong> Prof. Dr. João Silva
+                </p>
+
+                <div class="lista-projetos">
+
+                    <article class="projeto" data-turma="turma-1" data-categoria="tecnologia">
+                        <img src="assets/imagens/projetos/jogo-educativo.png"
+                            alt="Captura de tela do jogo sobre segurança digital" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Tecnologia</span>
+                            <h4>Jogo Educativo — Segurança Digital</h4>
+                            <p>Jogo em HTML5 para ensinar segurança digital a jovens do ensino médio da comunidade.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Ana Souza, Carlos Lima, Mariana Rocha</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Jovens do ensino médio</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-06-10">10/06/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-1/jogo/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-1/jogo/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-1/jogo/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-1" data-categoria="educacao">
+                        <img src="assets/imagens/projetos/site-informativo.png"
+                            alt="Captura do site sobre segurança online" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Educação</span>
+                            <h4>Site Informativo — Segurança Online</h4>
+                            <p>Portal com conteúdo educativo sobre segurança na internet, golpes digitais e proteção de
+                                dados.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Pedro Alves, Larissa Mendes, Thiago Costa</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Comunidade geral</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-06-15">15/06/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-1/site/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-1/site/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-1/site/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-1" data-categoria="social">
+                        <img src="assets/imagens/projetos/app-voluntariado.png" alt="Protótipo do app de voluntariado"
+                            width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Social</span>
+                            <h4>App Voluntariado Conectado</h4>
+                            <p>Protótipo de aplicativo para conectar voluntários a instituições sociais da cidade.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Juliana Ferreira, Rafael Nunes, Beatriz Santos</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Voluntários e ONGs locais</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status andamento">Em andamento</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-06-20">20/06/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-1/voluntariado/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-1/voluntariado/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-1/voluntariado/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+
+            <!-- TURMA 2 -->
+            <section id="turma-2" class="bloco-turma" data-turma="turma-2">
+                <h3>Turma 2 — 2025/1</h3>
+                <p>
+                    <strong>Curso:</strong> Ciência da Computação &nbsp;|&nbsp;
+                    <strong>Período:</strong> 4º Semestre &nbsp;|&nbsp;
+                    <strong>Orientadora:</strong> Profa. Dra. Maria Oliveira
+                </p>
+
+                <div class="lista-projetos">
+
+                    <article class="projeto" data-turma="turma-2" data-categoria="saude">
+                        <img src="assets/imagens/projetos/app-saude.png" alt="Interface do site de saúde mental"
+                            width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Saúde</span>
+                            <h4>Saúde Mental em Foco</h4>
+                            <p>Plataforma web com recursos de apoio à saúde mental para universitários.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Gabriel Moreira, Camila Pinto, Lucas Ribeiro, Amanda Torres</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Estudantes universitários</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-07-01">01/07/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-2/saude-mental/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-2/saude-mental/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-2/saude-mental/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-2" data-categoria="meio-ambiente">
+                        <img src="assets/imagens/projetos/ecologia.png" alt="Mapa de áreas verdes e coleta seletiva"
+                            width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Meio Ambiente</span>
+                            <h4>Mapa Verde</h4>
+                            <p>Mapa interativo com áreas verdes e pontos de coleta seletiva na cidade.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Fernanda Lima, Diego Santos, Isabela Cruz</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Moradores da cidade</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-07-05">05/07/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-2/mapa-verde/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-2/mapa-verde/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-2/mapa-verde/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-2" data-categoria="cultura">
+                        <img src="assets/imagens/projetos/patrimonio.png"
+                            alt="Galeria de patrimônio histórico digitalizado" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Cultura</span>
+                            <h4>Patrimônio Digital</h4>
+                            <p>Galeria virtual que digitaliza registros históricos da região para acesso público.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Leonardo Carvalho, Priscila Matos, Victor Andrade</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Pesquisadores e comunidade local</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status andamento">Em andamento</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-07-10">10/07/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-2/patrimonio/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-2/patrimonio/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-2/patrimonio/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+
+            <!-- TURMA 3 -->
+            <section id="turma-3" class="bloco-turma" data-turma="turma-3">
+                <h3>Turma 3 — 2025/2</h3>
+                <p>
+                    <strong>Curso:</strong> Engenharia de Software &nbsp;|&nbsp;
+                    <strong>Período:</strong> 5º Semestre &nbsp;|&nbsp;
+                    <strong>Orientador:</strong> Prof. Me. Roberto Almeida
+                </p>
+
+                <div class="lista-projetos">
+
+                    <article class="projeto" data-turma="turma-3" data-categoria="educacao">
+                        <img src="assets/imagens/projetos/alfabetizacao.png"
+                            alt="Tela da plataforma de alfabetização de adultos" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Educação</span>
+                            <h4>AlfaNet — Alfabetização de Adultos</h4>
+                            <p>Plataforma gamificada para auxiliar adultos no processo de alfabetização.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Tatiana Borges, Samuel Freitas, Natalia Gomes, Rodrigo Viana</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Adultos em processo de alfabetização</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-01">01/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-3/alfabetizacao/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-3/alfabetizacao/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-3/alfabetizacao/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-3" data-categoria="social">
+                        <img src="assets/imagens/projetos/banco-alimentos.png"
+                            alt="Sistema de controle do banco de alimentos" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Social</span>
+                            <h4>Sistema Banco de Alimentos</h4>
+                            <p>Sistema para gerenciar doações e distribuição de alimentos entre entidades e famílias.
+                            </p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Aline Souza, Bruno Pereira, Cristiane Melo</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>ONGs e famílias vulneráveis</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status andamento">Em andamento</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-10">10/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-3/banco-alimentos/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-3/banco-alimentos/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-3/banco-alimentos/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-3" data-categoria="tecnologia">
+                        <img src="assets/imagens/projetos/acessibilidade.png"
+                            alt="Plugin de acessibilidade funcionando em um site" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Tecnologia</span>
+                            <h4>AcessWeb — Plugin de Acessibilidade</h4>
+                            <p>Extensão para navegador que melhora a acessibilidade de sites para pessoas com
+                                deficiência.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Eduardo Lopes, Fernanda Dias, Henrique Castro, Marcela Ramos</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Pessoas com deficiência</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-15">15/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-3/acessweb/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-3/acessweb/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-3/acessweb/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+
+            <!-- TURMA 4 -->
+            <section id="turma-4" class="bloco-turma" data-turma="turma-4">
+                <h3>Turma 4 — 2025/2</h3>
+                <p>
+                    <strong>Curso:</strong> Sistemas de Informação &nbsp;|&nbsp;
+                    <strong>Período:</strong> 6º Semestre &nbsp;|&nbsp;
+                    <strong>Orientadora:</strong> Profa. Esp. Carla Monteiro
+                </p>
+
+                <div class="lista-projetos">
+
+                    <article class="projeto" data-turma="turma-4" data-categoria="meio-ambiente">
+                        <img src="assets/imagens/projetos/energia.png"
+                            alt="Dashboard de comparação de consumo de energia" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Meio Ambiente</span>
+                            <h4>EnergiaSol — Energia Solar</h4>
+                            <p>Dashboard para comparar consumo de energia convencional e solar em residências.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Patricia Correia, Vinicius Nascimento, Luana Barbosa</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Residências e pequenos comércios</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-20">20/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-4/energiasol/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-4/energiasol/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-4/energiasol/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-4" data-categoria="cultura">
+                        <img src="assets/imagens/projetos/podcast.png" alt="Página do podcast educacional" width="400"
+                            height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Cultura</span>
+                            <h4>EduCast — Podcast Educacional</h4>
+                            <p>Série de podcasts sobre cidadania e direitos produzidos por estudantes para a comunidade.
+                            </p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Marcus Lima, Simone Tavares, Renan Duarte, Giovana Faria</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Comunidade geral</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status andamento">Em andamento</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-22">22/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-4/educast/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-4/educast/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-4/educast/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projeto" data-turma="turma-4" data-categoria="saude">
+                        <img src="assets/imagens/projetos/idosos.png"
+                            alt="Guia digital para idosos aprenderem a usar smartphone" width="400" height="225">
+                        <div class="projeto-info">
+                            <span class="categoria">Saúde</span>
+                            <h4>TecnoIdoso — Inclusão Digital</h4>
+                            <p>Guia acessível para ensinar idosos a usar smartphones e aplicativos do dia a dia.</p>
+                            <dl>
+                                <dt>Equipe:</dt>
+                                <dd>Alessandra Cunha, Paulo Mendonça, Sabrina Rocha</dd>
+                                <dt>Público-alvo:</dt>
+                                <dd>Idosos acima de 60 anos</dd>
+                                <dt>Status:</dt>
+                                <dd><span class="status concluido">Concluído</span></dd>
+                                <dt>Data:</dt>
+                                <dd><time datetime="2025-12-28">28/12/2025</time></dd>
+                            </dl>
+                            <div class="projeto-links">
+                                <a href="projetos/turma-4/tecnoidoso/index.html">Acessar Projeto</a>
+                                <a href="projetos/turma-4/tecnoidoso/relatorio.pdf">Relatório PDF</a>
+                                <a href="projetos/turma-4/tecnoidoso/apresentacao.pdf">Apresentação</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </section><!-- /projetos -->
+
+
+        <!-- SUBMETER PROJETO -->
+        <section id="submeter">
+            <h2>Submeter Projeto</h2>
+            <p>Preencha o formulário abaixo para cadastrar o projeto da sua turma. Campos com <abbr
+                    title="obrigatório">*</abbr> são obrigatórios.</p>
+
+            <form id="form-submissao" action="processar.php" method="post" enctype="multipart/form-data">
+
+                <fieldset>
+                    <legend>Informações da Turma</legend>
+
+                    <div class="campo">
+                        <label for="turma-nome">Nome da Turma *</label>
+                        <input type="text" id="turma-nome" name="turma_nome" placeholder="Ex.: Turma 5 — ADS 2026/1"
+                            required maxlength="100">
+                    </div>
+
+                    <div class="campo">
+                        <label for="curso">Curso *</label>
+                        <select id="curso" name="curso" required>
+                            <option value="" disabled selected>Selecione o curso</option>
+                            <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+                            <option value="cc">Ciência da Computação</option>
+                            <option value="es">Engenharia de Software</option>
+                            <option value="si">Sistemas de Informação</option>
+                            <option value="redes">Redes de Computadores</option>
+                            <option value="gtec">Gestão de TI</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="curso-outro">Se "Outro", qual curso?</label>
+                        <input type="text" id="curso-outro" name="curso_outro" placeholder="Nome do curso"
+                            maxlength="100">
+                    </div>
+
+                    <div class="campo">
+                        <label for="periodo">Período *</label>
+                        <input type="text" id="periodo" name="periodo" placeholder="Ex.: 3º Semestre" required
+                            maxlength="50">
+                    </div>
+
+                    <div class="campo">
+                        <label for="semestre">Semestre Letivo *</label>
+                        <select id="semestre" name="semestre" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="2025-1">2025/1</option>
+                            <option value="2025-2">2025/2</option>
+                            <option value="2026-1">2026/1</option>
+                            <option value="2026-2">2026/2</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="professor">Professor(a) Orientador(a) *</label>
+                        <input type="text" id="professor" name="professor" placeholder="Ex.: Prof. Dr. João Silva"
+                            required maxlength="150">
+                    </div>
+
+                    <div class="campo">
+                        <label for="email-prof">E-mail do(a) Orientador(a) *</label>
+                        <input type="email" id="email-prof" name="email_prof" placeholder="professor@faculdade.edu.br"
+                            required>
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Informações do Projeto</legend>
+
+                    <div class="campo">
+                        <label for="titulo-proj">Título do Projeto *</label>
+                        <input type="text" id="titulo-proj" name="titulo_proj" placeholder="Título do projeto" required
+                            maxlength="200">
+                    </div>
+
+                    <div class="campo">
+                        <label for="descricao-proj">Descrição *</label>
+                        <textarea id="descricao-proj" name="descricao_proj" rows="5"
+                            placeholder="Descreva o objetivo e as funcionalidades do projeto (mínimo 100 caracteres)."
+                            required minlength="100" maxlength="1000"></textarea>
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoria">Categoria *</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="educacao">Educação</option>
+                            <option value="saude">Saúde</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="meio-ambiente">Meio Ambiente</option>
+                            <option value="cultura">Cultura</option>
+                            <option value="social">Social</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="publico">Público-alvo *</label>
+                        <input type="text" id="publico" name="publico" placeholder="Ex.: Jovens do ensino médio"
+                            required maxlength="200">
+                    </div>
+
+                    <div class="campo">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="em-andamento">Em andamento</option>
+                            <option value="concluido">Concluído</option>
+                            <option value="em-revisao">Em revisão</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="tecnologias">Tecnologias utilizadas</label>
+                        <input type="text" id="tecnologias" name="tecnologias"
+                            placeholder="Ex.: HTML, CSS, JavaScript, Figma..." maxlength="300">
+                        <small>Separe por vírgula.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="link-proj">Link do Projeto</label>
+                        <input type="url" id="link-proj" name="link_proj" placeholder="https://...">
+                        <small>Site, GitHub ou outro endereço público.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="link-video">Link do Vídeo de Apresentação</label>
+                        <input type="url" id="link-video" name="link_video" placeholder="https://youtube.com/...">
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Equipe</legend>
+
+                    <div class="campo">
+                        <label for="membro-1">Integrante 1 — Nome *</label>
+                        <input type="text" id="membro-1" name="membro_1" placeholder="Nome completo" required
+                            maxlength="150">
+                    </div>
+                    <div class="campo">
+                        <label for="ra-1">Integrante 1 — RA *</label>
+                        <input type="text" id="ra-1" name="ra_1" placeholder="Número de matrícula" required
+                            maxlength="20">
+                    </div>
+
+                    <div class="campo">
+                        <label for="membro-2">Integrante 2 — Nome</label>
+                        <input type="text" id="membro-2" name="membro_2" placeholder="Nome completo" maxlength="150">
+                    </div>
+                    <div class="campo">
+                        <label for="ra-2">Integrante 2 — RA</label>
+                        <input type="text" id="ra-2" name="ra_2" placeholder="Número de matrícula" maxlength="20">
+                    </div>
+
+                    <div class="campo">
+                        <label for="membro-3">Integrante 3 — Nome</label>
+                        <input type="text" id="membro-3" name="membro_3" placeholder="Nome completo" maxlength="150">
+                    </div>
+                    <div class="campo">
+                        <label for="ra-3">Integrante 3 — RA</label>
+                        <input type="text" id="ra-3" name="ra_3" placeholder="Número de matrícula" maxlength="20">
+                    </div>
+
+                    <div class="campo">
+                        <label for="membro-4">Integrante 4 — Nome</label>
+                        <input type="text" id="membro-4" name="membro_4" placeholder="Nome completo" maxlength="150">
+                    </div>
+                    <div class="campo">
+                        <label for="ra-4">Integrante 4 — RA</label>
+                        <input type="text" id="ra-4" name="ra_4" placeholder="Número de matrícula" maxlength="20">
+                    </div>
+
+                    <div class="campo">
+                        <label for="membro-5">Integrante 5 — Nome</label>
+                        <input type="text" id="membro-5" name="membro_5" placeholder="Nome completo" maxlength="150">
+                    </div>
+                    <div class="campo">
+                        <label for="ra-5">Integrante 5 — RA</label>
+                        <input type="text" id="ra-5" name="ra_5" placeholder="Número de matrícula" maxlength="20">
+                    </div>
+
+                    <div class="campo">
+                        <label for="email-equipe">E-mail de contato da equipe *</label>
+                        <input type="email" id="email-equipe" name="email_equipe" placeholder="email@exemplo.com"
+                            required>
+                        <small>Usado para avisar sobre a aprovação do projeto.</small>
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Arquivos</legend>
+
+                    <div class="campo">
+                        <label for="arquivo-relatorio">Relatório (PDF) *</label>
+                        <input type="file" id="arquivo-relatorio" name="arquivo_relatorio" accept=".pdf" required>
+                        <small>Máximo 10 MB.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="arquivo-apresentacao">Apresentação (PDF ou PPTX)</label>
+                        <input type="file" id="arquivo-apresentacao" name="arquivo_apresentacao"
+                            accept=".pdf,.pptx,.ppt">
+                        <small>Máximo 20 MB.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="arquivo-capa">Imagem de capa</label>
+                        <input type="file" id="arquivo-capa" name="arquivo_capa"
+                            accept="image/png,image/jpeg,image/webp">
+                        <small>PNG, JPG ou WEBP. Máximo 5 MB. Recomendado: 1280x720 px.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="arquivo-zip">Arquivos do projeto (ZIP)</label>
+                        <input type="file" id="arquivo-zip" name="arquivo_zip" accept=".zip,.rar">
+                        <small>Máximo 50 MB.</small>
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Confirmação</legend>
+
+                    <div class="campo campo-check">
+                        <input type="checkbox" id="aceite-autoria" name="aceite_autoria" value="sim" required>
+                        <label for="aceite-autoria">Declaro que sou autor(a) deste projeto e tenho autorização de todos
+                            os integrantes para submetê-lo. *</label>
+                    </div>
+
+                    <div class="campo campo-check">
+                        <input type="checkbox" id="aceite-publicacao" name="aceite_publicacao" value="sim" required>
+                        <label for="aceite-publicacao">Autorizo a publicação deste projeto na plataforma para fins
+                            acadêmicos. *</label>
+                    </div>
+
+                    <div class="campo campo-check">
+                        <input type="checkbox" id="aceite-termos" name="aceite_termos" value="sim" required>
+                        <label for="aceite-termos">Li e concordo com os <a href="termos.html" target="_blank">Termos de
+                                Uso</a>. *</label>
+                    </div>
+
+                    <div id="botoes-form">
+                        <button type="reset">Limpar</button>
+                        <button type="submit">Enviar Projeto</button>
+                    </div>
+                </fieldset>
+
+            </form>
+        </section>
+
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Perguntas Frequentes</h2>
+
+            <dl>
+                <dt>Qualquer turma pode submeter?</dt>
+                <dd>Sim, todas as turmas das atividades extensionistas podem enviar seus projetos pelo formulário.</dd>
+
+                <dt>Quanto tempo leva para publicar?</dt>
+                <dd>A coordenação avalia em até 5 dias úteis e avisa por e-mail.</dd>
+
+                <dt>Posso editar depois de publicado?</dt>
+                <dd>Sim, entre em contato pelo e-mail da plataforma com o título do projeto e as alterações.</dd>
+
+                <dt>O projeto precisa estar concluído?</dt>
+                <dd>Não. Projetos em andamento também podem ser submetidos, basta marcar o status correto.</dd>
+
+                <dt>Os arquivos são públicos?</dt>
+                <dd>Sim, todos os arquivos publicados ficam disponíveis para acesso acadêmico e não comercial.</dd>
+            </dl>
+        </section>
+
+
+        <!-- CONTATO -->
+        <section id="contato">
+            <h2>Contato</h2>
+
+            <address>
+                <p><strong>E-mail:</strong> <a href="mailto:extensao@faculdade.edu.br">extensao@faculdade.edu.br</a></p>
+                <p><strong>Local:</strong> Bloco B, Sala 210</p>
+                <p><strong>Atendimento:</strong> Segunda a sexta, das 9h às 17h</p>
+            </address>
+
+            <form id="form-contato" action="contato.php" method="post">
+                <fieldset>
+                    <legend>Enviar Mensagem</legend>
+
+                    <div class="campo">
+                        <label for="cont-nome">Nome *</label>
+                        <input type="text" id="cont-nome" name="cont_nome" placeholder="Seu nome" required
+                            maxlength="150">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cont-email">E-mail *</label>
+                        <input type="email" id="cont-email" name="cont_email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cont-assunto">Assunto *</label>
+                        <select id="cont-assunto" name="cont_assunto" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="duvida">Dúvida</option>
+                            <option value="submissao">Submissão de Projeto</option>
+                            <option value="correcao">Correção de Informação</option>
+                            <option value="remocao">Remoção de Projeto</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cont-mensagem">Mensagem *</label>
+                        <textarea id="cont-mensagem" name="cont_mensagem" rows="5" placeholder="Escreva sua mensagem..."
+                            required minlength="20" maxlength="2000"></textarea>
+                    </div>
+
+                    <button type="submit">Enviar</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div id="rodape-info">
+            <div>
+                <h3>Plataforma Extensionista</h3>
+                <p>Repositório oficial dos projetos de extensão da faculdade.</p>
+            </div>
+            <div>
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#submeter">Submeter</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Turmas</h3>
+                <ul>
+                    <li><a href="#turma-1">Turma 1 — 2025/1</a></li>
+                    <li><a href="#turma-2">Turma 2 — 2025/1</a></li>
+                    <li><a href="#turma-3">Turma 3 — 2025/2</a></li>
+                    <li><a href="#turma-4">Turma 4 — 2025/2</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p><a href="mailto:extensao@faculdade.edu.br">extensao@faculdade.edu.br</a></p>
+                <p>Bloco B, Sala 210</p>
+            </div>
+        </div>
+
+        <p id="rodape-copy">&copy; 2026 — Repositório de Projetos Extensionistas</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
