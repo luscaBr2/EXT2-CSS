@@ -1,7 +1,18 @@
 /* ============================================================================
    WCAG 2.2 COMPLIANT STYLESHEET - Repositório de Projetos Extensionistas
+
+   Alterado por: Gabriel Oliveira
+   Data: 19/05/2026
+
+   Ajustes realizados:
+   - Padronização de variáveis usadas no index.css;
+   - Correção de foco visível;
+   - Ajuste de contraste em modo claro e escuro;
+   - Correção de tamanho dos checkboxes/radios;
+   - Preservação de critérios de acessibilidade web.
+
    ============================================================================
-   
+
    Este CSS segue as diretrizes WCAG 2.2 (https://guia-wcag.com)
    Critérios implementados:
    - 1.4.3 (AA): Contraste mínimo 4.5:1 para texto, 3:1 para componentes
@@ -19,33 +30,40 @@
 :root {
     color-scheme: light dark;
 
+    /* ALTERADO: variáveis adicionadas para evitar falhas no index.css.
+       Antes, algumas variáveis eram chamadas, mas não existiam no :root. */
+    --a11y-focus-offset: 3px;
+    --a11y-target-min-enhanced: 44px;
+
     /* Cores com contraste validado 4.5:1+ para modo claro */
     --a11y-color-bg: #ffffff;
+    --a11y-color-bg-alt: #f5f7fb;
     --a11y-color-surface: #f5f5f5;
     --a11y-color-text: #1a1a1a;
     --a11y-color-muted: #555555;
     --a11y-color-border: #606060;
 
-    /* Links: contraste 4.5:1 */
-    --a11y-color-link: #0052cc;
-    --a11y-color-link-visited: #5b21b6;
-    --a11y-color-link-hover: #0036a3;
-    --a11y-color-link-focus: #0036a3;
+    /* ALTERADO por Gabriel Oliveira - 19/05/2026
+       Azul principal escurecido para permitir texto branco nos botões. */
+--a11y-color-link: #7cc4ff;
+    --a11y-color-link-visited: #d8b4fe;
+    --a11y-color-link-hover: #a5d8ff;
+    --a11y-color-link-focus: #a5d8ff;
 
-    /* Status e feedback: contraste 3:1+ */
-    --a11y-color-danger: #d32f2f;
-    --a11y-color-success: #2e7d32;
-    --a11y-color-warning: #f57c00;
-    --a11y-color-info: #1976d2;
+    /* Status e feedback */
+    --a11y-color-danger: #b71c1c;
+    --a11y-color-success: #14532d;
+    --a11y-color-warning: #78350f;
+    --a11y-color-info: #0d47a1;
 
-    /* Focus (foco visível conforme 2.4.7 e 2.4.13) */
+    /* Focus */
     --a11y-focus-outer: #0052cc;
     --a11y-focus-inner: #ffffff;
     --a11y-focus-width: 2px;
     --a11y-focus-gap: 2px;
     --a11y-focus-total: 4px;
 
-    /* Espaçamento (1.4.12) */
+    /* Espaçamento */
     --a11y-space-1: 0.25rem;
     --a11y-space-2: 0.5rem;
     --a11y-space-3: 0.75rem;
@@ -64,7 +82,7 @@
     --a11y-readable-width: 70ch;
     --a11y-page-width: 1280px;
 
-    /* Tamanho mínimo de alvo (2.5.5, 2.5.8) */
+    /* Tamanho mínimo de alvo */
     --a11y-target-min-aa: 44px;
     --a11y-target-min-a: 24px;
 
@@ -78,38 +96,44 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --a11y-color-bg: #0a0e27;
+        --a11y-color-bg-alt: #11172f;
         --a11y-color-surface: #161b33;
         --a11y-color-text: #f2f2f2;
-        --a11y-color-muted: #b3b3b3;
+
+        /* ALTERADO por Gabriel Oliveira - 19/05/2026
+           Texto secundário clareado para melhorar contraste no WAVE. */
+        --a11y-color-muted: #d1d5db;
+
         --a11y-color-border: #888888;
 
-        /* Links em dark mode: contraste 4.5:1 */
-        --a11y-color-link: #5dade2;
-        --a11y-color-link-visited: #bb86fc;
-        --a11y-color-link-hover: #74b9ff;
-        --a11y-color-link-focus: #74b9ff;
+        /* ALTERADO por Gabriel Oliveira - 19/05/2026
+           Azul mantido escuro o bastante para texto branco em botões. */
+        --a11y-color-link: #2563eb;
+        --a11y-color-link-visited: #c4b5fd;
+        --a11y-color-link-hover: #1d4ed8;
+        --a11y-color-link-focus: #1d4ed8;
 
-        /* Status em dark mode: contraste 3:1+ */
-        --a11y-color-danger: #ff6b6b;
-        --a11y-color-success: #81c784;
-        --a11y-color-warning: #ffa726;
-        --a11y-color-info: #64b5f6;
+        --a11y-color-danger: #ff8a80;
+        --a11y-color-success: #86efac;
+        --a11y-color-warning: #fbbf24;
+        --a11y-color-info: #93c5fd;
 
-        /* Focus em dark mode */
         --a11y-focus-outer: #5dade2;
         --a11y-focus-inner: #0a0e27;
     }
 }
 
-/* Respeitar preferência de redução de movimento (2.3.3) */
+/* Respeitar preferência de redução de movimento */
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.001ms !important;
+        animation-delay: 0ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+        transition-delay: 0ms !important;
         scroll-behavior: auto !important;
     }
 }
@@ -258,9 +282,10 @@ a[href]:focus-visible {
 }
 
 :where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus-visible {
-    outline: var(--a11y-focus-width) solid var(--a11y-focus-outer);
-    outline-offset: var(--a11y-focus-offset);
-    box-shadow: 0 0 0 calc(var(--a11y-focus-width) * 2) var(--a11y-focus-inner);
+    outline: 3px solid var(--a11y-focus-outer);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(93, 173, 226, 0.25);
+    border-radius: var(--a11y-radius-sm);
 }
 
 :where(a[href], button, input, select, textarea, summary, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
@@ -404,13 +429,19 @@ textarea {
     resize: vertical;
 }
 
+/* ALTERADO por Gabriel Oliveira em 19/05/2026:
+   Checkboxes e radios foram reduzidos para não ficarem gigantes.
+   A área clicável continua acessível porque os labels associados também ativam o campo. */
 input[type="checkbox"],
 input[type="radio"] {
-    inline-size: var(--a11y-target-min-aa);
-    block-size: var(--a11y-target-min-aa);
+    inline-size: 20px;
+    block-size: 20px;
+    min-inline-size: 20px;
+    min-block-size: 20px;
     margin: 0 var(--a11y-space-2) 0 0;
     vertical-align: middle;
     accent-color: var(--a11y-color-link);
+    cursor: pointer;
 }
 
 input[type="range"] {
@@ -638,25 +669,7 @@ abbr[title] {
 }
 
 /* --------------------------------------------------------------------------
-   8. Movimento reduzido e prevenção de estímulos desnecessários
-   -------------------------------------------------------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.001ms !important;
-        animation-delay: 0ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        transition-delay: 0ms !important;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   9. Modo alto contraste / cores forçadas
+   8. Modo alto contraste / cores forçadas
    -------------------------------------------------------------------------- */
 
 @media (forced-colors: active) {
@@ -692,7 +705,7 @@ abbr[title] {
 }
 
 /* --------------------------------------------------------------------------
-   10. Classes utilitárias opcionais
+   9. Classes utilitárias opcionais
    -------------------------------------------------------------------------- */
 
 .a11y-container {

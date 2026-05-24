@@ -1,6 +1,23 @@
 /* Arquivo feito por Lucas Santos em 18/05/2026 */
 
+/* --------------------------------------------------------------------------
+   ALTERAÇÕES DE ACESSIBILIDADE
+   Alterado por: Gabriel Oliveira
+   Data: 19/05/2026
+
+   Objetivo das alterações:
+   - Corrigir contraste e estados de links visitados;
+   - Padronizar hover, foco visível e navegação por teclado;
+   - Ajustar botões dos cards para não perderem texto;
+   - Melhorar status, formulário, checkboxes e rodapé;
+   - Manter o CSS alinhado às boas práticas de acessibilidade web.
+   -------------------------------------------------------------------------- */
+
 @import url('wcag.css');
+
+/* ALTERADO: ajustes feitos com foco em acessibilidade web.
+   Principais pontos: contraste, foco visível, botões dos cards,
+   responsividade e correção de links visitados que estavam sumindo. */
 
 /* --------------------------------------------------------------------------
    1. HEADER E NAVEGAÇÃO
@@ -13,6 +30,44 @@ header {
     border-bottom: 3px solid var(--a11y-color-link);
     padding: var(--a11y-space-6) var(--a11y-space-4);
     margin-bottom: var(--a11y-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   CORREÇÃO DO MENU PRINCIPAL
+   Impede que links visitados fiquem roxos e que o texto suma no hover/foco
+   -------------------------------------------------------------------------- */
+
+/* ALTERADO por Gabriel Oliveira - 19/05/2026
+   Corrige links visitados do menu principal para não ficarem roxos
+   e mantém contraste no fundo escuro. */
+header nav a,
+header nav a:link,
+header nav a:visited {
+    background-color: var(--a11y-color-surface);
+    color: var(--a11y-color-link);
+    border-color: var(--a11y-color-border);
+    text-decoration: none;
+}
+
+/* ALTERADO por Gabriel Oliveira - 19/05/2026
+   Garante texto branco no hover/foco do menu para manter contraste. */
+header nav a:hover,
+header nav a:focus-visible,
+header nav a:active {
+    background-color: var(--a11y-color-link);
+    color: #ffffff;
+    border-color: var(--a11y-color-link);
+    text-decoration: none;
+}
+
+/* Mantém contraste do foco sem esconder o texto */
+header nav a:focus-visible {
+    outline: 3px solid var(--a11y-focus-outer);
+    outline-offset: 3px;
+    box-shadow:
+        0 0 0 4px rgba(93, 173, 226, 0.25);
+
+    border-radius: var(--a11y-radius-sm);
 }
 
 #topo {
@@ -115,20 +170,26 @@ nav a:focus-visible {
     font-size: 1rem;
 }
 
+/* ALTERADO por Gabriel Oliveira - 19/05/2026
+   Botão de busca escurecido para corrigir contraste no WAVE. */
 #busca button {
     min-height: var(--a11y-target-min-aa);
     padding: var(--a11y-space-2) var(--a11y-space-4);
-    background-color: var(--a11y-color-link);
+    background-color: #004aad;
     color: #ffffff;
-    border: none;
+    border: 2px solid #004aad;
     border-radius: var(--a11y-radius-sm);
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s ease;
 }
 
+/* ALTERADO por Gabriel Oliveira - 19/05/2026
+   Hover do botão de busca escurecido para manter contraste. */
 #busca button:hover {
-    background-color: var(--a11y-color-link-hover);
+    background-color: #003580;
+    border-color: #003580;
+    color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
 }
 
@@ -370,7 +431,9 @@ section p {
     display: inline-block;
     margin-bottom: var(--a11y-space-3);
     padding: var(--a11y-space-1) var(--a11y-space-3);
-    background-color: var(--a11y-color-link);
+    /* ALTERADO por Gabriel Oliveira - 19/05/2026
+       Cor escurecida para melhorar contraste no WAVE */
+    background-color: #0052cc;
     color: #ffffff;
     border-radius: var(--a11y-radius-sm);
     font-size: 0.875rem;
@@ -424,7 +487,8 @@ section p {
 }
 
 .status.concluido {
-    background-color: rgba(46, 125, 50, 0.2);
+    /* ALTERADO: cores com melhor contraste para texto pequeno. */
+    background-color: #e8f5e9;
     color: var(--a11y-color-success);
     border: 1px solid var(--a11y-color-success);
 }
@@ -435,7 +499,8 @@ section p {
 }
 
 .status.andamento {
-    background-color: rgba(245, 124, 0, 0.2);
+    /* ALTERADO: laranja escurecido para evitar erro de contraste. */
+    background-color: #fff3e0;
     color: var(--a11y-color-warning);
     border: 1px solid var(--a11y-color-warning);
 }
@@ -454,33 +519,48 @@ section p {
 }
 
 .projeto-links a {
+    /* ALTERADO: ajuste no flex para impedir que o texto do botão suma ou fique espremido. */
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: var(--a11y-target-min-aa);
-    flex: 1;
-    min-width: 120px;
+    flex: 1 1 140px;
+    min-width: 140px;
     padding: var(--a11y-space-2) var(--a11y-space-3);
-    background-color: var(--a11y-color-link);
+    background-color: #004aad;
     color: #ffffff;
-    border: 2px solid var(--a11y-color-link);
+    border: 2px solid #004aad;
     border-radius: var(--a11y-radius-sm);
     text-decoration: none;
     text-align: center;
     font-weight: 600;
     font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: normal;
     transition: all 0.2s ease;
-    justify-content: center;
+}
+
+/* ALTERADO: impede que o :visited global do wcag.css deixe o texto invisível nos botões. */
+.projeto-links a:link,
+.projeto-links a:visited,
+.projeto-links a:active {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .projeto-links a:hover {
-    background-color: var(--a11y-color-link-hover);
-    border-color: var(--a11y-color-link-hover);
+    background-color: #003580;
+    border-color: #003580;
+    color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 82, 204, 0.2);
 }
 
 .projeto-links a:focus-visible {
-    outline: 2px solid var(--a11y-color-link-hover);
-    outline-offset: 2px;
+    /* ALTERADO: foco mais forte e visível nos botões dos cards. */
+    outline: 3px solid var(--a11y-focus-outer);
+    outline-offset: 3px;
+    color: #ffffff;
+    box-shadow: 0 0 0 5px var(--a11y-focus-inner);
 }
 
 .projeto-links a:active {
@@ -536,6 +616,8 @@ footer p {
     max-width: 100%;
 }
 
+/* ALTERADO por Gabriel Oliveira - 19/05/2026
+   Links do rodapé revisados para controle de contraste e estados visitados. */
 footer a {
     color: var(--a11y-color-link);
     font-weight: 500;
@@ -554,6 +636,33 @@ footer a:focus-visible {
     outline: 2px solid var(--a11y-color-link);
     outline-offset: 2px;
     border-radius: var(--a11y-radius-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   6.1. AJUSTE GERAL DE FOCO ACESSÍVEL
+   -------------------------------------------------------------------------- */
+
+/* ALTERADO: reforço de foco visível para navegação por teclado.
+   Ajuda nos testes do Lighthouse/WAVE e melhora a usabilidade. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--a11y-focus-outer);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px var(--a11y-focus-inner);
+}
+
+/* ALTERADO: garante que links usados como botões continuem com contraste suficiente. */
+nav a:hover,
+nav a:focus-visible,
+#filtro-turmas a:hover,
+#filtro-turmas a:focus-visible,
+#filtro-categorias a:hover,
+#filtro-categorias a:focus-visible {
+    color: #ffffff;
 }
 
 /* --------------------------------------------------------------------------
@@ -624,10 +733,12 @@ footer a:focus-visible {
     }
 
     .projeto-links a {
-        min-width: auto;
-        padding: var(--a11y-space-1) var(--a11y-space-2);
-        font-size: 0.85rem;
-        flex: 1 1 auto;
+        /* ALTERADO: mantém tamanho mínimo acessível mesmo em telas pequenas. */
+        min-width: 130px;
+        min-height: var(--a11y-target-min-aa);
+        padding: var(--a11y-space-2);
+        font-size: 0.9rem;
+        flex: 1 1 130px;
     }
 }
 
@@ -662,35 +773,489 @@ footer a:focus-visible {
 
 /* --------------------------------------------------------------------------
    9. PRINT
+   ---
+/* --------------------------------------------------------------------------
+   10. CORREÇÕES FINAIS DE ACESSIBILIDADE - LINKS, BOTÕES E STATUS
+   Alterado por Gabriel/Grupo: evita conflitos com :visited global do wcag.css,
+   mantém contraste no hover/focus e melhora o visual do status "Em andamento".
    -------------------------------------------------------------------------- */
 
-@media print {
+/* ALTERADO: links que parecem botões não devem herdar a cor roxa de links visitados. */
+nav a,
+nav a:link,
+nav a:visited,
+#filtro-turmas a,
+#filtro-turmas a:link,
+#filtro-turmas a:visited,
+#filtro-categorias a,
+#filtro-categorias a:link,
+#filtro-categorias a:visited {
+    color: var(--a11y-color-link);
+    background-color: var(--a11y-color-bg-alt);
+    border-color: var(--a11y-color-border);
+    text-decoration: none;
+}
 
-    header,
-    nav,
-    #busca,
-    .projeto-links,
-    footer {
-        display: none;
+/* ALTERADO: no hover/focus o texto continua branco para manter contraste. */
+nav a:hover,
+nav a:focus-visible,
+#filtro-turmas a:hover,
+#filtro-turmas a:focus-visible,
+#filtro-categorias a:hover,
+#filtro-categorias a:focus-visible {
+    color: #ffffff;
+    background-color: var(--a11y-color-link-hover);
+    border-color: var(--a11y-color-link-hover);
+    text-decoration: none;
+}
+
+/* ALTERADO: estado ativo também mantém contraste. */
+#filtro-turmas a.active,
+#filtro-turmas a.active:visited,
+#filtro-categorias a.active,
+#filtro-categorias a.active:visited {
+    color: #ffffff;
+    background-color: var(--a11y-color-link);
+    border-color: var(--a11y-color-link);
+    text-decoration: none;
+}
+
+/* ALTERADO: botões dos cards blindados contra :visited, :hover e :active globais. */
+.projeto-links a,
+.projeto-links a:link,
+.projeto-links a:visited,
+.projeto-links a:hover,
+.projeto-links a:focus,
+.projeto-links a:focus-visible,
+.projeto-links a:active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--a11y-target-min-aa);
+    flex: 1 1 140px;
+    min-width: 140px;
+    padding: var(--a11y-space-2) var(--a11y-space-3);
+    background-color: var(--a11y-color-link);
+    color: #ffffff;
+    border: 2px solid var(--a11y-color-link);
+    border-radius: var(--a11y-radius-sm);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+/* ALTERADO: hover dos botões dos cards sem perder contraste. */
+.projeto-links a:hover,
+.projeto-links a:focus-visible {
+    background-color: var(--a11y-color-link-hover);
+    border-color: var(--a11y-color-link-hover);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.25);
+}
+
+/* ALTERADO: status "Em andamento" com visual mais limpo e contraste melhor. */
+.status.andamento {
+    background-color: #fef3c7;
+    color: #78350f;
+    border: 1px solid #f59e0b;
+}
+
+.status.andamento::before {
+    content: "⏳ ";
+}
+
+/* ALTERADO: status "Concluído" com contraste e aparência mais consistente. */
+.status.concluido {
+    background-color: #dcfce7;
+    color: #14532d;
+    border: 1px solid #22c55e;
+}
+
+.status.concluido::before {
+    content: "✓ ";
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   11. AJUSTES FINAIS DE ACESSIBILIDADE - GABRIEL OLIVEIRA (19/05/2026)
+   ALTERADO: bloco final criado para sobrescrever regras antigas sem precisar
+   alterar a estrutura HTML. Corrige menu, filtros, botões, formulário,
+   checkboxes, rodapé e estados de foco/hover/visited.
+   -------------------------------------------------------------------------- */
+
+/* ALTERADO: foco azul padronizado em todo o site.
+   Antes havia diferença visual entre menu e outros elementos. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--a11y-focus-outer);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--a11y-focus-outer) 35%, transparent);
+}
+
+/* ALTERADO: menu principal protegido contra a regra global de links visitados.
+   Corrige o roxo do :visited e mantém contraste no hover/focus. */
+header nav a[href],
+header nav a[href]:link,
+header nav a[href]:visited {
+    background-color: var(--a11y-color-surface);
+    color: #7cc4ff;
+    border-color: var(--a11y-color-border);
+    text-decoration: none;
+}
+
+header nav a[href]:hover,
+header nav a[href]:focus,
+header nav a[href]:focus-visible,
+header nav a[href]:active {
+    background-color: var(--a11y-color-link-hover);
+    color: #ffffff;
+    border-color: var(--a11y-color-link-hover);
+    text-decoration: none;
+}
+
+/* ALTERADO: filtros também têm aparência de botão, então não devem herdar
+   a cor roxa de link visitado. */
+#filtro-turmas a[href],
+#filtro-turmas a[href]:link,
+#filtro-turmas a[href]:visited,
+#filtro-categorias a[href],
+#filtro-categorias a[href]:link,
+#filtro-categorias a[href]:visited {
+    background-color: var(--a11y-color-bg-alt);
+    color: #7cc4ff;
+    border-color: var(--a11y-color-border);
+    text-decoration: none;
+}
+
+#filtro-turmas a[href]:hover,
+#filtro-turmas a[href]:focus,
+#filtro-turmas a[href]:focus-visible,
+#filtro-turmas a[href]:active,
+#filtro-categorias a[href]:hover,
+#filtro-categorias a[href]:focus,
+#filtro-categorias a[href]:focus-visible,
+#filtro-categorias a[href]:active {
+    background-color: var(--a11y-color-link-hover);
+    color: #ffffff;
+    border-color: var(--a11y-color-link-hover);
+    text-decoration: none;
+}
+
+#filtro-turmas a.active,
+#filtro-turmas a.active:visited,
+#filtro-categorias a.active,
+#filtro-categorias a.active:visited {
+    background-color: var(--a11y-color-link);
+    color: #ffffff;
+    border-color: var(--a11y-color-link);
+    text-decoration: none;
+}
+
+/* ALTERADO: botões dos cards protegidos contra :visited e hover global.
+   Corrige texto sumindo ou ficando com contraste ruim. */
+.projeto-links a[href],
+.projeto-links a[href]:link,
+.projeto-links a[href]:visited,
+.projeto-links a[href]:active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--a11y-target-min-aa);
+    flex: 1 1 140px;
+    min-width: 140px;
+    padding: var(--a11y-space-2) var(--a11y-space-3);
+    background-color: var(--a11y-color-link);
+    color: #ffffff;
+    border: 2px solid var(--a11y-color-link);
+    border-radius: var(--a11y-radius-sm);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+.projeto-links a[href]:hover,
+.projeto-links a[href]:focus,
+.projeto-links a[href]:focus-visible {
+    background-color: var(--a11y-color-link-hover);
+    color: #ffffff;
+    border-color: var(--a11y-color-link-hover);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.25);
+}
+
+/* ALTERADO: status com contraste melhor e visual mais limpo. */
+.status.andamento {
+    background-color: #fef3c7;
+    color: #78350f;
+    border: 1px solid #d97706;
+}
+
+.status.andamento::before {
+    content: "⏳ ";
+}
+
+.status.concluido {
+    background-color: #dcfce7;
+    color: #14532d;
+    border: 1px solid #16a34a;
+}
+
+.status.concluido::before {
+    content: "✓ ";
+    font-weight: 700;
+}
+
+/* ALTERADO: formulário de submissão em coluna única, centralizado e consistente.
+   Foi mantido um layout simples para evitar desalinhamento e melhorar leitura. */
+#submeter {
+    max-width: var(--a11y-page-width);
+    margin-inline: auto;
+}
+
+#submeter>p {
+    max-width: 70ch;
+}
+
+#form-submissao {
+    max-width: 900px;
+    width: 100%;
+}
+
+#form-submissao fieldset {
+    max-width: 980px;
+    width: 100%;
+    margin-bottom: var(--a11y-space-6);
+    padding: var(--a11y-space-5);
+}
+
+#form-submissao .campo {
+    margin-bottom: var(--a11y-space-4);
+}
+
+#form-submissao label {
+    display: block;
+    margin-bottom: var(--a11y-space-2);
+}
+
+/* ALTERADO: altura mínima aplicada apenas aos campos de texto/select/textarea.
+   Checkbox e radio ficam fora para não virarem quadrados gigantes. */
+#form-submissao input:not([type="checkbox"]):not([type="radio"]),
+#form-submissao select,
+#form-submissao textarea {
+    width: 100%;
+    inline-size: 100%;
+    min-height: 48px;
+}
+
+/* ALTERADO: checkboxes corrigidos. Mantém tamanho acessível sem exagero visual.
+   O clique no texto continua funcionando porque o label está associado ao input. */
+#submeter input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    inline-size: 20px;
+    block-size: 20px;
+    margin-top: 0.15rem;
+    accent-color: var(--a11y-color-link);
+    cursor: pointer;
+    flex: 0 0 20px;
+}
+
+#submeter .campo-check {
+    align-items: flex-start;
+    gap: var(--a11y-space-3);
+}
+
+#submeter .campo-check label {
+    line-height: 1.5;
+}
+
+/* ALTERADO: botões do formulário com tamanho mínimo adequado e contraste. */
+#botoes-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--a11y-space-3);
+    margin-top: var(--a11y-space-4);
+}
+
+#botoes-form button {
+    min-width: 160px;
+    min-height: var(--a11y-target-min-aa);
+}
+
+/* ALTERADO: rodapé organizado em grid, melhorando leitura e responsividade. */
+footer {
+    padding-top: 3rem;
+}
+
+#rodape-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--a11y-space-5);
+    text-align: left;
+    max-width: var(--a11y-page-width);
+    margin: 0 auto var(--a11y-space-6);
+}
+
+#rodape-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#rodape-copy {
+    border-top: 1px solid var(--a11y-color-border);
+    padding-top: var(--a11y-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   CORREÇÃO FINAL DE CONTRASTE DOS BOTÕES
+   Alterado por: Gabriel Oliveira
+   Data: 19/05/2026
+
+   Corrige contraste dos botões apontados pelo WAVE.
+   -------------------------------------------------------------------------- */
+
+#busca button,
+#busca button:visited,
+.projeto-links a,
+.projeto-links a:link,
+.projeto-links a:visited,
+.projeto-links a:active {
+
+    background-color: #004aad;
+    border-color: #004aad;
+    color: #ffffff;
+}
+
+#busca button:hover,
+#busca button:focus,
+#busca button:focus-visible,
+.projeto-links a:hover,
+.projeto-links a:focus,
+.projeto-links a:focus-visible {
+
+    background-color: #003580;
+    border-color: #003580;
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   CORREÇÃO DE CONTRASTE - TEXTOS DOS CARDS
+   Alterado por: Gabriel Oliveira
+   Data: 19/05/2026
+
+   Ajuste de contraste para reduzir erros apontados pelo WAVE
+   no modo escuro.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+
+    .projeto>.projeto-info>p,
+    .projeto dd,
+    section p,
+    .bloco-turma>p,
+    .numero-item span,
+    footer p,
+    small {
+
+        color: #d1d5db;
     }
 
-    main {
-        padding: 0;
-    }
+}
 
-    .projeto {
-        page-break-inside: avoid;
-        border: 1px solid #000000;
-        margin-bottom: var(--a11y-space-4);
-    }
+/* --------------------------------------------------------------------------
+   CORREÇÃO - CONTRASTE DOS TEXTOS DE LINKS
+   Alterado por: Gabriel Oliveira
+   Data: 19/05/2026
 
-    .projeto img {
-        max-height: 150px;
-    }
+   Clareia links em fundo escuro para corrigir os erros restantes do WAVE.
+   -------------------------------------------------------------------------- */
 
-    a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.85rem;
-        color: #666666;
-    }
+header nav a,
+header nav a:link,
+header nav a:visited,
+#filtro-turmas a,
+#filtro-turmas a:link,
+#filtro-turmas a:visited,
+#filtro-categorias a,
+#filtro-categorias a:link,
+#filtro-categorias a:visited,
+footer a,
+footer a:link,
+footer a:visited,
+#submeter a,
+#submeter a:link,
+#submeter a:visited {
+
+    color: #9fd4ff;
+    text-decoration: none;
+}
+
+/* Mantém o texto branco quando o link vira botão no hover/foco */
+header nav a:hover,
+header nav a:focus,
+header nav a:focus-visible,
+header nav a:active,
+#filtro-turmas a:hover,
+#filtro-turmas a:focus,
+#filtro-turmas a:focus-visible,
+#filtro-turmas a:active,
+#filtro-categorias a:hover,
+#filtro-categorias a:focus,
+#filtro-categorias a:focus-visible,
+#filtro-categorias a:active {
+    color: #ffffff;
+}
+
+/* Mantém os botões dos cards escuros e com texto branco */
+.projeto-links a,
+.projeto-links a:link,
+.projeto-links a:visited,
+.projeto-links a:active {
+    background-color: #004aad;
+    border-color: #004aad;
+    color: #ffffff;
+}
+
+/* Hover/foco dos botões dos cards também escuro */
+.projeto-links a:hover,
+.projeto-links a:focus,
+.projeto-links a:focus-visible {
+    background-color: #003580;
+    border-color: #003580;
+    color: #ffffff;
+}
+
+a:link {
+    color: #9fd4ff;
+}
+
+a:hover {
+    color: var(--a11y-color-link);
+}
+
+/* Mantém o botão de busca escuro e com contraste */
+#busca button {
+    background-color: #004aad;
+    border-color: #004aad;
+    color: #ffffff;
+}
+
+#busca button:hover,
+#busca button:focus,
+#busca button:focus-visible {
+    background-color: #003580;
+    border-color: #003580;
+    color: #ffffff;
 }
