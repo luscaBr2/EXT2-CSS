@@ -10,9 +10,10 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
+    <div vw class="enabled" aria-label="Widget de acessibilidade VLibras">
+        <div vw-access-button class="active" aria-label="Botão de ativação do VLibras"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
@@ -22,7 +23,7 @@
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
-    <header>
+    <header role="banner" aria-label="Cabeçalho da página">
         <div id="topo">
             <img src="https://www.ifspcjo.edu.br/images/Campos_do_Jordao_-_Logo_Horizontal_Colorido.jpg"
                 alt="Logo da faculdade" id="logo" width="100">
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        <nav>
+        <nav aria-label="Navegação principal">
             <ul>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#turmas">Turmas</a></li>
@@ -42,11 +43,11 @@
     </header>
 
 
-    <main>
+    <main id="main-content" role="main">
 
         <!-- SOBRE -->
-        <section id="sobre">
-            <h2>Sobre a Plataforma</h2>
+        <section id="sobre" aria-labelledby="sobre-title">
+            <h2 id="sobre-title">Sobre a Plataforma</h2>
             <p>
                 Esta plataforma reúne os projetos extensionistas desenvolvidos pelas turmas da faculdade.
                 Os projetos aprovados ficam disponíveis para toda a comunidade acadêmica.
@@ -94,11 +95,11 @@
 
 
         <!-- FILTRO DE TURMAS -->
-        <section id="turmas">
-            <h2>Turmas</h2>
+        <section id="turmas" aria-labelledby="turmas-title">
+            <h2 id="turmas-title">Turmas</h2>
             <p>Clique em uma turma para filtrar os projetos.</p>
 
-            <nav id="filtro-turmas">
+            <nav id="filtro-turmas" aria-label="Filtro por turma">
                 <ul>
                     <li><a href="#projetos" class="filtro" data-turma="todas">Todas</a></li>
                     <li><a href="#projetos" class="filtro" data-turma="turma-1">Turma 1 — 2025/1</a></li>
@@ -108,7 +109,7 @@
                 </ul>
             </nav>
 
-            <nav id="filtro-categorias">
+            <nav id="filtro-categorias" aria-label="Filtro por categoria">
                 <ul>
                     <li><a href="#projetos" class="filtro-cat" data-categoria="todas">Todas as categorias</a></li>
                     <li><a href="#projetos" class="filtro-cat" data-categoria="educacao">Educação</a></li>
@@ -123,10 +124,10 @@
 
 
         <!-- PROJETOS -->
-        <section id="projetos">
-            <h2>Projetos Disponíveis</h2>
+        <section id="projetos" aria-labelledby="projetos-title">
+            <h2 id="projetos-title">Projetos Disponíveis</h2>
 
-            <p id="resultado-filtro"></p>
+            <p id="resultado-filtro" aria-live="polite" aria-atomic="true"></p>
 
 
             <!-- TURMA 1 -->
@@ -496,8 +497,8 @@
 
 
         <!-- FAQ -->
-        <section id="faq">
-            <h2>Perguntas Frequentes</h2>
+        <section id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Perguntas Frequentes</h2>
 
             <dl>
                 <dt>Qualquer turma pode submeter?</dt>
@@ -521,7 +522,7 @@
     </main>
 
 
-    <footer>
+    <footer role="contentinfo" aria-label="Rodapé da página">
         <div id="rodape-info">
             <div>
                 <h3>Plataforma Extensionista</h3>
