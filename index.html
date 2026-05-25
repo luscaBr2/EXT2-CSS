@@ -12,15 +12,15 @@
 <body>
 
     <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
     <header>
         <div id="topo">
@@ -37,18 +37,8 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#turmas">Turmas</a></li>
                 <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#submeter">Submeter Projeto</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
-
-        <div id="busca">
-            <form action="#projetos" method="get">
-                <label for="campo-busca">Buscar:</label>
-                <input type="search" id="campo-busca" name="q" placeholder="Buscar projeto ou turma...">
-                <button type="submit">Buscar</button>
-            </form>
-        </div>
     </header>
 
 
@@ -59,8 +49,7 @@
             <h2>Sobre a Plataforma</h2>
             <p>
                 Esta plataforma reúne os projetos extensionistas desenvolvidos pelas turmas da faculdade.
-                Qualquer turma pode submeter seu projeto pelo formulário abaixo. Após avaliação da coordenação,
-                o projeto fica disponível para toda a comunidade acadêmica.
+                Os projetos aprovados ficam disponíveis para toda a comunidade acadêmica.
             </p>
 
             <div id="numeros">
@@ -91,10 +80,6 @@
                 <li>
                     <h3>Prepare o projeto</h3>
                     <p>Junte os arquivos: relatório em PDF, imagens e informações da equipe.</p>
-                </li>
-                <li>
-                    <h3>Preencha o formulário</h3>
-                    <p>Acesse a seção "Submeter Projeto" e preencha os campos.</p>
                 </li>
                 <li>
                     <h3>Aguarde aprovação</h3>
@@ -510,261 +495,6 @@
         </section><!-- /projetos -->
 
 
-        <!-- SUBMETER PROJETO -->
-        <section id="submeter">
-            <h2>Submeter Projeto</h2>
-            <p>Preencha o formulário abaixo para cadastrar o projeto da sua turma. Campos com <abbr
-                    title="obrigatório">*</abbr> são obrigatórios.</p>
-
-            <form id="form-submissao" action="processar.php" method="post" enctype="multipart/form-data">
-
-                <fieldset>
-                    <legend>Informações da Turma</legend>
-
-                    <div class="campo">
-                        <label for="turma-nome">Nome da Turma *</label>
-                        <input type="text" id="turma-nome" name="turma_nome" placeholder="Ex.: Turma 5 — ADS 2026/1"
-                            required maxlength="100">
-                    </div>
-
-                    <div class="campo">
-                        <label for="curso">Curso *</label>
-                        <select id="curso" name="curso" required>
-                            <option value="" disabled selected>Selecione o curso</option>
-                            <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-                            <option value="cc">Ciência da Computação</option>
-                            <option value="es">Engenharia de Software</option>
-                            <option value="si">Sistemas de Informação</option>
-                            <option value="redes">Redes de Computadores</option>
-                            <option value="gtec">Gestão de TI</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="campo">
-                        <label for="curso-outro">Se "Outro", qual curso?</label>
-                        <input type="text" id="curso-outro" name="curso_outro" placeholder="Nome do curso"
-                            maxlength="100">
-                    </div>
-
-                    <div class="campo">
-                        <label for="periodo">Período *</label>
-                        <input type="text" id="periodo" name="periodo" placeholder="Ex.: 3º Semestre" required
-                            maxlength="50">
-                    </div>
-
-                    <div class="campo">
-                        <label for="semestre">Semestre Letivo *</label>
-                        <select id="semestre" name="semestre" required>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="2025-1">2025/1</option>
-                            <option value="2025-2">2025/2</option>
-                            <option value="2026-1">2026/1</option>
-                            <option value="2026-2">2026/2</option>
-                        </select>
-                    </div>
-
-                    <div class="campo">
-                        <label for="professor">Professor(a) Orientador(a) *</label>
-                        <input type="text" id="professor" name="professor" placeholder="Ex.: Prof. Dr. João Silva"
-                            required maxlength="150">
-                    </div>
-
-                    <div class="campo">
-                        <label for="email-prof">E-mail do(a) Orientador(a) *</label>
-                        <input type="email" id="email-prof" name="email_prof" placeholder="professor@faculdade.edu.br"
-                            required>
-                    </div>
-                </fieldset>
-
-
-                <fieldset>
-                    <legend>Informações do Projeto</legend>
-
-                    <div class="campo">
-                        <label for="titulo-proj">Título do Projeto *</label>
-                        <input type="text" id="titulo-proj" name="titulo_proj" placeholder="Título do projeto" required
-                            maxlength="200">
-                    </div>
-
-                    <div class="campo">
-                        <label for="descricao-proj">Descrição *</label>
-                        <textarea id="descricao-proj" name="descricao_proj" rows="5"
-                            placeholder="Descreva o objetivo e as funcionalidades do projeto (mínimo 100 caracteres)."
-                            required minlength="100" maxlength="1000"></textarea>
-                    </div>
-
-                    <div class="campo">
-                        <label for="categoria">Categoria *</label>
-                        <select id="categoria" name="categoria" required>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="educacao">Educação</option>
-                            <option value="saude">Saúde</option>
-                            <option value="tecnologia">Tecnologia</option>
-                            <option value="meio-ambiente">Meio Ambiente</option>
-                            <option value="cultura">Cultura</option>
-                            <option value="social">Social</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="campo">
-                        <label for="publico">Público-alvo *</label>
-                        <input type="text" id="publico" name="publico" placeholder="Ex.: Jovens do ensino médio"
-                            required maxlength="200">
-                    </div>
-
-                    <div class="campo">
-                        <label for="status">Status *</label>
-                        <select id="status" name="status" required>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="em-andamento">Em andamento</option>
-                            <option value="concluido">Concluído</option>
-                            <option value="em-revisao">Em revisão</option>
-                        </select>
-                    </div>
-
-                    <div class="campo">
-                        <label for="tecnologias">Tecnologias utilizadas</label>
-                        <input type="text" id="tecnologias" name="tecnologias"
-                            placeholder="Ex.: HTML, CSS, JavaScript, Figma..." maxlength="300">
-                        <small>Separe por vírgula.</small>
-                    </div>
-
-                    <div class="campo">
-                        <label for="link-proj">Link do Projeto</label>
-                        <input type="url" id="link-proj" name="link_proj" placeholder="https://...">
-                        <small>Site, GitHub ou outro endereço público.</small>
-                    </div>
-
-                    <div class="campo">
-                        <label for="link-video">Link do Vídeo de Apresentação</label>
-                        <input type="url" id="link-video" name="link_video" placeholder="https://youtube.com/...">
-                    </div>
-                </fieldset>
-
-
-                <fieldset>
-                    <legend>Equipe</legend>
-
-                    <div class="campo">
-                        <label for="membro-1">Integrante 1 — Nome *</label>
-                        <input type="text" id="membro-1" name="membro_1" placeholder="Nome completo" required
-                            maxlength="150">
-                    </div>
-                    <div class="campo">
-                        <label for="ra-1">Integrante 1 — RA *</label>
-                        <input type="text" id="ra-1" name="ra_1" placeholder="Número de matrícula" required
-                            maxlength="20">
-                    </div>
-
-                    <div class="campo">
-                        <label for="membro-2">Integrante 2 — Nome</label>
-                        <input type="text" id="membro-2" name="membro_2" placeholder="Nome completo" maxlength="150">
-                    </div>
-                    <div class="campo">
-                        <label for="ra-2">Integrante 2 — RA</label>
-                        <input type="text" id="ra-2" name="ra_2" placeholder="Número de matrícula" maxlength="20">
-                    </div>
-
-                    <div class="campo">
-                        <label for="membro-3">Integrante 3 — Nome</label>
-                        <input type="text" id="membro-3" name="membro_3" placeholder="Nome completo" maxlength="150">
-                    </div>
-                    <div class="campo">
-                        <label for="ra-3">Integrante 3 — RA</label>
-                        <input type="text" id="ra-3" name="ra_3" placeholder="Número de matrícula" maxlength="20">
-                    </div>
-
-                    <div class="campo">
-                        <label for="membro-4">Integrante 4 — Nome</label>
-                        <input type="text" id="membro-4" name="membro_4" placeholder="Nome completo" maxlength="150">
-                    </div>
-                    <div class="campo">
-                        <label for="ra-4">Integrante 4 — RA</label>
-                        <input type="text" id="ra-4" name="ra_4" placeholder="Número de matrícula" maxlength="20">
-                    </div>
-
-                    <div class="campo">
-                        <label for="membro-5">Integrante 5 — Nome</label>
-                        <input type="text" id="membro-5" name="membro_5" placeholder="Nome completo" maxlength="150">
-                    </div>
-                    <div class="campo">
-                        <label for="ra-5">Integrante 5 — RA</label>
-                        <input type="text" id="ra-5" name="ra_5" placeholder="Número de matrícula" maxlength="20">
-                    </div>
-
-                    <div class="campo">
-                        <label for="email-equipe">E-mail de contato da equipe *</label>
-                        <input type="email" id="email-equipe" name="email_equipe" placeholder="email@exemplo.com"
-                            required>
-                        <small>Usado para avisar sobre a aprovação do projeto.</small>
-                    </div>
-                </fieldset>
-
-
-                <fieldset>
-                    <legend>Arquivos</legend>
-
-                    <div class="campo">
-                        <label for="arquivo-relatorio">Relatório (PDF) *</label>
-                        <input type="file" id="arquivo-relatorio" name="arquivo_relatorio" accept=".pdf" required>
-                        <small>Máximo 10 MB.</small>
-                    </div>
-
-                    <div class="campo">
-                        <label for="arquivo-apresentacao">Apresentação (PDF ou PPTX)</label>
-                        <input type="file" id="arquivo-apresentacao" name="arquivo_apresentacao"
-                            accept=".pdf,.pptx,.ppt">
-                        <small>Máximo 20 MB.</small>
-                    </div>
-
-                    <div class="campo">
-                        <label for="arquivo-capa">Imagem de capa</label>
-                        <input type="file" id="arquivo-capa" name="arquivo_capa"
-                            accept="image/png,image/jpeg,image/webp">
-                        <small>PNG, JPG ou WEBP. Máximo 5 MB. Recomendado: 1280x720 px.</small>
-                    </div>
-
-                    <div class="campo">
-                        <label for="arquivo-zip">Arquivos do projeto (ZIP)</label>
-                        <input type="file" id="arquivo-zip" name="arquivo_zip" accept=".zip,.rar">
-                        <small>Máximo 50 MB.</small>
-                    </div>
-                </fieldset>
-
-
-                <fieldset>
-                    <legend>Confirmação</legend>
-
-                    <div class="campo campo-check">
-                        <input type="checkbox" id="aceite-autoria" name="aceite_autoria" value="sim" required>
-                        <label for="aceite-autoria">Declaro que sou autor(a) deste projeto e tenho autorização de todos
-                            os integrantes para submetê-lo. *</label>
-                    </div>
-
-                    <div class="campo campo-check">
-                        <input type="checkbox" id="aceite-publicacao" name="aceite_publicacao" value="sim" required>
-                        <label for="aceite-publicacao">Autorizo a publicação deste projeto na plataforma para fins
-                            acadêmicos. *</label>
-                    </div>
-
-                    <div class="campo campo-check">
-                        <input type="checkbox" id="aceite-termos" name="aceite_termos" value="sim" required>
-                        <label for="aceite-termos">Li e concordo com os <a href="termos.html" target="_blank">Termos de
-                                Uso</a>. *</label>
-                    </div>
-
-                    <div id="botoes-form">
-                        <button type="reset">Limpar</button>
-                        <button type="submit">Enviar Projeto</button>
-                    </div>
-                </fieldset>
-
-            </form>
-        </section>
-
-
         <!-- FAQ -->
         <section id="faq">
             <h2>Perguntas Frequentes</h2>
@@ -788,55 +518,6 @@
         </section>
 
 
-        <!-- CONTATO -->
-        <section id="contato">
-            <h2>Contato</h2>
-
-            <address>
-                <p><strong>E-mail:</strong> <a href="mailto:extensao@faculdade.edu.br">extensao@faculdade.edu.br</a></p>
-                <p><strong>Local:</strong> Bloco B, Sala 210</p>
-                <p><strong>Atendimento:</strong> Segunda a sexta, das 9h às 17h</p>
-            </address>
-
-            <form id="form-contato" action="contato.php" method="post">
-                <fieldset>
-                    <legend>Enviar Mensagem</legend>
-
-                    <div class="campo">
-                        <label for="cont-nome">Nome *</label>
-                        <input type="text" id="cont-nome" name="cont_nome" placeholder="Seu nome" required
-                            maxlength="150">
-                    </div>
-
-                    <div class="campo">
-                        <label for="cont-email">E-mail *</label>
-                        <input type="email" id="cont-email" name="cont_email" placeholder="seu@email.com" required>
-                    </div>
-
-                    <div class="campo">
-                        <label for="cont-assunto">Assunto *</label>
-                        <select id="cont-assunto" name="cont_assunto" required>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="duvida">Dúvida</option>
-                            <option value="submissao">Submissão de Projeto</option>
-                            <option value="correcao">Correção de Informação</option>
-                            <option value="remocao">Remoção de Projeto</option>
-                            <option value="sugestao">Sugestão</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="campo">
-                        <label for="cont-mensagem">Mensagem *</label>
-                        <textarea id="cont-mensagem" name="cont_mensagem" rows="5" placeholder="Escreva sua mensagem..."
-                            required minlength="20" maxlength="2000"></textarea>
-                    </div>
-
-                    <button type="submit">Enviar</button>
-                </fieldset>
-            </form>
-        </section>
-
     </main>
 
 
@@ -851,9 +532,7 @@
                 <ul>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#submeter">Submeter</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
             <div>

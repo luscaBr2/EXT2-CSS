@@ -141,63 +141,6 @@ nav a:focus-visible {
     outline-offset: 2px;
 }
 
-/* Busca */
-#busca {
-    max-width: var(--a11y-page-width);
-    margin: var(--a11y-space-4) auto;
-    padding-inline: var(--a11y-space-4);
-}
-
-#busca form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--a11y-space-2);
-    align-items: flex-end;
-    max-width: 600px;
-}
-
-#busca label {
-    font-weight: 600;
-    margin-bottom: 0;
-}
-
-#busca input {
-    flex: 1;
-    min-width: 200px;
-    padding: var(--a11y-space-2) var(--a11y-space-3);
-    border: 2px solid var(--a11y-color-border);
-    border-radius: var(--a11y-radius-sm);
-    font-size: 1rem;
-}
-
-/* ALTERADO por Gabriel Oliveira - 19/05/2026
-   Botão de busca escurecido para corrigir contraste no WAVE. */
-#busca button {
-    min-height: var(--a11y-target-min-aa);
-    padding: var(--a11y-space-2) var(--a11y-space-4);
-    background-color: #004aad;
-    color: #ffffff;
-    border: 2px solid #004aad;
-    border-radius: var(--a11y-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-/* ALTERADO por Gabriel Oliveira - 19/05/2026
-   Hover do botão de busca escurecido para manter contraste. */
-#busca button:hover {
-    background-color: #003580;
-    border-color: #003580;
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
-}
-
-#busca button:focus-visible {
-    outline: 2px solid var(--a11y-color-link-hover);
-    outline-offset: 2px;
-}
-
 /* --------------------------------------------------------------------------
    2. SEÇÕES DE CONTEÚDO
    -------------------------------------------------------------------------- */
@@ -688,19 +631,6 @@ nav a:focus-visible,
         justify-content: flex-start;
     }
 
-    #busca form {
-        flex-direction: column;
-    }
-
-    #busca input {
-        width: 100%;
-        min-width: auto;
-    }
-
-    #busca button {
-        width: 100%;
-    }
-
     .lista-projetos {
         grid-template-columns: 1fr;
     }
@@ -1119,15 +1049,13 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
-   CORREÇÃO FINAL DE CONTRASTE DOS BOTÕES
-   Alterado por: Gabriel Oliveira
-   Data: 19/05/2026
+    CORREÇÃO FINAL DE CONTRASTE DOS BOTÕES
+    Alterado por: Gabriel Oliveira
+    Data: 19/05/2026
 
-   Corrige contraste dos botões apontados pelo WAVE.
-   -------------------------------------------------------------------------- */
+    Corrige contraste dos botões apontados pelo WAVE.
+    -------------------------------------------------------------------------- */
 
-#busca button,
-#busca button:visited,
 .projeto-links a,
 .projeto-links a:link,
 .projeto-links a:visited,
@@ -1138,9 +1066,6 @@ footer {
     color: #ffffff;
 }
 
-#busca button:hover,
-#busca button:focus,
-#busca button:focus-visible,
 .projeto-links a:hover,
 .projeto-links a:focus,
 .projeto-links a:focus-visible {
@@ -1243,19 +1168,4 @@ a:link {
 
 a:hover {
     color: var(--a11y-color-link);
-}
-
-/* Mantém o botão de busca escuro e com contraste */
-#busca button {
-    background-color: #004aad;
-    border-color: #004aad;
-    color: #ffffff;
-}
-
-#busca button:hover,
-#busca button:focus,
-#busca button:focus-visible {
-    background-color: #003580;
-    border-color: #003580;
-    color: #ffffff;
 }
